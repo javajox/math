@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+
+% Scratch work commands
+\newcommand{\scratch}[1]{\textcolor{blue}{#1}}
+\newcommand{\idea}[1]{\textcolor{red}{\textbf{Idea:} #1}}
+\newcommand{\question}[1]{\textcolor{orange}{\textbf{Q:} #1}}
+\newcommand{\note}[1]{\textcolor{gray}{\textit{Note: #1}}}
+
+% No page numbers for scratch work
+\pagestyle{empty}
+
+\begin{document}
+	
+	
+**Theorem:** For the sequence $b_1, b_2, b_3, \ldots$ defined by $b_1 = 4$, $b_2 = 12$, and $b_k = b_{k-2} + b_{k-1}$ for every integer $k \geq 3$, we have that $b_n$ is divisible by 4 for every integer $n \geq 1$.
+
+**Proof:** We prove this by strong mathematical induction.
+
+Let $P(n)$ be the statement "$b_n$ is divisible by 4."
+
+**Base cases:** We verify $P(1)$ and $P(2)$.
+- $P(1)$: $b_1 = 4 = 4 \cdot 1$, so $b_1$ is divisible by 4.
+- $P(2)$: $b_2 = 12 = 4 \cdot 3$, so $b_2$ is divisible by 4.
+
+**Inductive step:** Let $k \geq 2$ be an arbitrary integer. Assume that $P(j)$ is true for all integers $j$ with $1 \leq j \leq k$. We will prove that $P(k+1)$ is true.
+
+By the recurrence relation, we have:
+$$b_{k+1} = b_{(k+1)-2} + b_{(k+1)-1} = b_{k-1} + b_k$$
+
+Since $k \geq 2$, we have $k-1 \geq 1$ and $k \geq 1$, so both $b_{k-1}$ and $b_k$ fall within our inductive hypothesis. Therefore, by our assumption, both $b_{k-1}$ and $b_k$ are divisible by 4.
+
+This means we can write $b_{k-1} = 4m$ and $b_k = 4n$ for some integers $m$ and $n$.
+
+Therefore:
+$$b_{k+1} = b_{k-1} + b_k = 4m + 4n = 4(m + n)$$
+
+Since $m + n$ is an integer, we conclude that $b_{k+1}$ is divisible by 4, which proves $P(k+1)$.
+
+**Conclusion:** By the principle of strong mathematical induction, $P(n)$ is true for all integers $n \geq 1$. Therefore, $b_n$ is divisible by 4 for every integer $n \geq 1$. $\blacksquare$
+	
+\end{document}
